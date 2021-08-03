@@ -1,0 +1,40 @@
+body 
+{
+    background-color: #6666ff;
+}
+button{
+    width: 100px;
+    height: 66px;
+    background-color: #009999;
+    text-align: center;
+        
+}
+div{
+    
+    
+    border: solid black 3px;
+    border-radius: 15%;
+    background-color: aquamarine;
+}
+input{
+    width: 150px;
+    height: 66px;
+    border-radius: 15%;
+    text-align: center;
+    font-size: x-large;
+    background-color: #ffff99;
+        
+   
+}
+
+
+td{
+    background-color: #00cccc;
+    border: solid 3px #ff9933;
+    font-size: x-large;
+    text-align: center;
+}
+a {
+    background-color: #66ff66;
+    border: solid 2px #009999;
+}
