@@ -48,3 +48,4 @@ if (!empty($_GET['cost_income']) && !empty($_GET['explain_cost_income'])) {
 }
 ?>
 <a href="index.php"> back to notebook</a>
+<p></p>
