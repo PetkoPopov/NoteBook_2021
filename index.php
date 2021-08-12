@@ -10,6 +10,7 @@
         <?php
         session_start();
 //                $_SESSION['textArea']='';
+        $_SESSION['isRecord']=false ;
         ?>
         <form>
             <select style="background-color: #cccc00; width:100px;height: 66px;" name="opt">
@@ -42,6 +43,7 @@
 
         </form>
         <?php
+        
         if (isset($_GET['textArea']) && $_GET['textArea'] == $_SESSION['textArea']) {
             die();
         }
@@ -70,6 +72,8 @@
                 . "`expl` TEXT NULL DEFAULT NULL ,"
                 . " `at_date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ,"
                 . " PRIMARY KEY (`id`)) ENGINE = InnoDB; ";
+        $msql->query($query);
+        $query="ALTER TABLE `income_cost` ADD `name` TEXT NOT NULL AFTER `at_date`;";
         $msql->query($query);
 
 ///////////////////////////////////////////////////////////////////////////////////////
