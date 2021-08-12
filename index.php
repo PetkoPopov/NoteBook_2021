@@ -102,8 +102,11 @@
 
             if (!empty($_GET['time_event'])) {
                 $time_event = $_GET["time_event"];
+                $_SESSION['time_event']=$time_event;
             } else {
                 $time_event = "2021/09/09";
+                
+                $_SESSION['time_event']=$time_event;
             }
             if ($stmt2->execute()) {
                 echo "RECCORD";

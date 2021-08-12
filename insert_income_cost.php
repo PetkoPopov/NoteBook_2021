@@ -16,15 +16,27 @@ session_start();
                 <input type="number" name="cost_income" id="cost"><!-- comment -->
                 <label for="cost">insert cost or income </label><!-- comment -->
                 <p></p>
-                <input type="text" name="explan_cost_income" id="expl">
+                <input type="text" name="explain_cost_income" id="expl">
                 <label for="expl">insert explanation</label>
                 <input type="submit" value="record">
 </div>
     
 </form>
 <?php
-$query = "INSERT INTO `income_cost` (`cost_income`, `expl`, `at_date`) VALUES (? , ? , ? )";
-         
+$dbname = "notebook";
+$conn = new mysqli('', "root", "", $dbname);
+
+$query = "INSERT INTO `income_cost` (`cost_income` , `at_date` , `expl`) VALUES (? , ? ,? )";
+$record= $conn->prepare($query);
+$val=$_GET["cost_income"];
+
+$date=$_SESSION['time_event'];
+$expl=$_GET['explain_cost_income'];
+$record->bind_param('iss',$val,$date,$expl);
+        $record->execute();
+//        var_dump($_GET,"</br>",$_SESSION);
+        
+
 
 
 ?>
