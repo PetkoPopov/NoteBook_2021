@@ -9,16 +9,31 @@
     <body>
         <?php
         session_start();
-//                $_SESSION['textArea']='';
-        $_SESSION['isRecord']=false ;
+//        if(!isset($_SESSION['text_area'])){
+//            $_SESSION['text_area']='';
+//        }else{
+//                $_SESSION['textArea']='123';
+//        }
+//        $_SESSION['isRecord'] = false;
+      if(in_array('update', $_GET)){
+      //to do
+          var_dump($_SESSION);
+          
+          require_once('calc.php');
+          die;
+      }
+      
         ?>
         <form>
             <select style="background-color: #cccc00; width:100px;height: 66px;" name="opt">
                 <option value="#">no value</option>
                 <?php
+                
+         
+                
                 $allNames = [];
                 $msql = new mysqli('', 'root', '', "notebook");
-          $_SESSION['connection']=$msql ; 
+                $_SESSION['connection'] = $msql;
                 $query = "select `name` from `namess` ";
                 $result = $msql->query($query); //внимание ако заявкята е грешна кода ще спре без да гръмне
                 $all = $result->fetch_all();
@@ -33,18 +48,25 @@
                 <a href="insert_income_cost.php">go to insert incomes or costs</a>
             </div>
             <p></p>
-            INSERT NEW NAME-OBJECT :<input type="text" name="newObject" >
+            INSERT NEW NAME-OBJECT :<input type="text" name="newObject"  value="">
             <p>
-                <textarea name="textArea" rows="15" cols="20" value=""></textarea>
+                <textarea name="textArea" rows="15" cols="20" ></textarea>
             </p>
-            <input type="date" name="time_event">
+            <label for="time_event">избери дата </label>
+            <input type="date" name="time_event" id="time_event">
+            <p> 
 
-            <input  type="submit" style="background-color: #cccc00; width:100px;height: 66px;" name="btn" value="btnValue" >
+                <label for="time_manual" >въведи датата ръчно</label>
+                <input type="text" name="time_manual" id="time_manual" >
 
-        </form>
+            </p>
+            <input  type="submit" style="background-color: #cccc00; width:100px;height: 66px;" name="btn" value="Запиши" >
+
+        <!--</form>-->
         <?php
         
         if (isset($_GET['textArea']) && $_GET['textArea'] == $_SESSION['textArea']) {
+          
             die();
         }
 
@@ -65,7 +87,7 @@
                 . "`time_event` DATE NOT NULL ,"
                 . " PRIMARY KEY (`id`)) ENGINE = InnoDB;";
         $msql->query($query);
-        
+
         $query = "CREATE TABLE `notebook`.`income_cost` ("
                 . " `id` INT NOT NULL AUTO_INCREMENT ,"
                 . " `cost_income` INT(10) NULL DEFAULT NULL , "
@@ -73,7 +95,7 @@
                 . " `at_date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ,"
                 . " PRIMARY KEY (`id`)) ENGINE = InnoDB; ";
         $msql->query($query);
-        $query="ALTER TABLE `income_cost` ADD `name` TEXT NOT NULL AFTER `at_date`;";
+        $query = "ALTER TABLE `income_cost` ADD `name` TEXT NOT NULL AFTER `at_date`;";
         $msql->query($query);
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -106,25 +128,33 @@
 
             if (!empty($_GET['time_event'])) {
                 $time_event = $_GET["time_event"];
-                $_SESSION['time_event']=$time_event;
-            } else {
-                $time_event = "2021/09/09";
-                
-                $_SESSION['time_event']=$time_event;
+                $_SESSION['time_event'] = $time_event;
+            } elseif (!empty($_GET['time_manual'])) {
+                $time_event = $_GET['time_manual'];
+
+                $_SESSION['time_event'] = $time_event;
             }
             if ($stmt2->execute()) {
                 echo "RECCORD";
+               
             } else {
                 echo "NO RECORD";
             }
             $_SESSION['textArea'] = $event;
             $_SESSION['name'] = $newNameObj;
         }
+        
+//          $_SESSION['textArea'] = $event;
+//            $_SESSION['name'] = $newNameObj;
+//        
         require_once './funcShow.php';
 
-//        echo "<pre>";
-//        var_dump($_SESSION);
-//        echo "</pre>"
+        
+        ?>
+        
+        </form>
+        <?php
+        
         ?>
         <a href="clearDB.php">clear tables</a>
     </body>
