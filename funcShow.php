@@ -1,11 +1,9 @@
 <?php
 
-
-
-
 $query = "SELECT * from $newNameObj ";
 $result=$msql->query($query);
 $show = $result->fetch_all();
+rsort($show);
 echo "<table>";
 foreach($show as $k=>$recc){
     $n='update_'.$k;
