@@ -45,7 +45,7 @@
             <p></p>
             INSERT NEW NAME-OBJECT :<input type="text" name="newObject"  value="">
             <p>
-                <textarea name="textArea" rows="15" cols="20" ></textarea>
+                <textarea name="textArea" rows="5" cols="100" style="background-color: #99ff99 ; font-size: x-large"></textarea>
             </p>
             <label for="time_event">избери дата </label>
             <input type="date" name="time_event" id="time_event">
@@ -145,11 +145,12 @@ if (!empty($_GET['textArea'])) {
 //            $_SESSION['name'] = $newNameObj;
 //        
 require_once './funcShow.php';
+
+
 ?>
 
         </form>
-            <?php
-            ?>
+           
         <a href="clearDB.php">clear tables</a>
     </body>
 </html>

@@ -50,9 +50,6 @@ echo "<p></p>";
     }
 }
 
-echo "<pre>";
-var_dump($_SERVER);
-echo "</pre>";
       ?>
 <a href="index.php">Back to NoteBook</a>
       
