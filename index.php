@@ -9,6 +9,16 @@
     <body>
         <?php
         session_start();
+        
+//echo "<pre>";
+//var_dump($_GET);
+//echo "</pre>";
+$let_sort = false;
+if(isset($_GET['id']) || isset($GET['empty']) || isset($_GET['date']) || isset($_GET['reccord'])){
+    $let_sort = true;
+}
+
+
         if (isset($_SESSION['textArea'])) {
             
         } else {
@@ -95,6 +105,9 @@ $query = "CREATE TABLE `notebook`.`income_cost` ("
 $msql->query($query);
 $query = "ALTER TABLE `income_cost` ADD `name` TEXT NOT NULL AFTER `at_date`;";
 $msql->query($query);
+$query = "ALTER TABLE `income_cost` ADD INDEX(`name`)";
+$msql->query($query);
+
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //            $query ="insert into `namess` (`name`) values($newNameObj)";
@@ -144,8 +157,9 @@ if (!empty($_GET['textArea'])) {
 //          $_SESSION['textArea'] = $event;
 //            $_SESSION['name'] = $newNameObj;
 //        
-require_once './funcShow.php';
 
+//require_once './funcShow.php';
+header("Location:./funcShow.php")
 
 ?>
 
