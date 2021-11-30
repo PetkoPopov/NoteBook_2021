@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
 <head>
     <link rel="stylesheet" href="newcss.css">
@@ -15,5 +15,7 @@ var_dump($_SESSION);
     <input type="submit">
     
 </form>
+
 <?php
+var_dump($_GET);
 
