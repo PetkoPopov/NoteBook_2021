@@ -70,21 +70,20 @@ $counter = 0 ;
 foreach ($show_after_sort as $k => $recc) {
 //foreach ($show as $k => $recc) {
     $counter++;
-    
+    if($counter%8 == 0){
+        ?><tr><td><a href="index.php">Go to NoteBook</a></td></tr><?php
+       
+    }
     $n = 'update_' . $k;
     $recc[]= " <input type='submit' value='update'  name=$n  > ";
     echo "<tr>";
-    if($counter%8 == 0){
-        ?><td><a href="index.php">Go to NoteBook</a></td></tr><?php
-        continue;
-    }
+    
     foreach ($recc as $r) {
         
         echo "<td>";
         echo $r;
         echo "</td>";
     }
-    
     
     echo "</tr>";
 }
