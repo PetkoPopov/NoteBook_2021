@@ -7,14 +7,17 @@ button{
     height: 66px;
     background-color: #009999;
     text-align: center;
-        
+
 }
 div{
-    
-    
+    height: 100px;
+    width:300px;
     border: solid black 3px;
     border-radius: 15%;
     background-color: aquamarine;
+    text-align: center;
+    /*font-size: 70px;*/
+
 }
 input{
     width: 150px;
@@ -23,8 +26,8 @@ input{
     text-align: center;
     font-size: x-large;
     background-color: #ffff99;
-        
-   
+
+
 }
 
 

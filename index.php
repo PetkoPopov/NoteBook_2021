@@ -49,22 +49,25 @@ if(isset($_GET['id']) || isset($GET['empty']) || isset($_GET['date']) || isset($
                 ?>
 
             </select> 
+            <p>
             <div>
                 <a href="insert_income_cost.php">go to insert incomes or costs</a>
             </div>
-            <p></p>
+            </p>
+            <p>
             INSERT NEW NAME-OBJECT :<input type="text" name="newObject"  value="">
+            </p>
             <p>
                 <textarea name="textArea" rows="5" cols="100" style="background-color: #99ff99 ; font-size: x-large"></textarea>
             </p>
             <label for="time_event">избери дата </label>
             <input type="date" name="time_event" id="time_event">
-            <p> 
+             
 
                 <label for="time_manual" >въведи датата ръчно</label>
                 <input type="text" name="time_manual" id="time_manual" >
 
-            </p>
+            
             <input  type="submit" style="background-color: #cccc00; width:100px;height: 66px;" name="btn" value="Запиши" >
 
             <!--</form>-->
