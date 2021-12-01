@@ -4,6 +4,8 @@
 </head>
 <body>
     <a href="index.php">go to NoteBook </a>
+    <a href="insert_income_cost.php">income and payment</a>
+    <a href="View/showAllForObject.php">show balans</a>
 
     <?php
     session_start();
@@ -75,6 +77,7 @@ foreach ($show_after_sort as $k => $recc) {
         <tr><!-- comment -->
             <td><a href="index.php">Go to NoteBook</a></td>
             <td><a href="View/showAllForObject.php">show balans</a></td>
+            <td><a href="insert_income_cost.php">income and payment</a></td>
         </tr><?php
     }
     $n = 'update_' . $k;
@@ -95,4 +98,6 @@ echo "</table>";
 
 </form>
 <a href="index.php">go to NoteBook</a>
+<a href="insert_income_cost.php">go to insert income payment </a>
+<a href="View/showAllForObject.php">go to balans</a>
 </body>

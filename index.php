@@ -52,6 +52,12 @@ if(isset($_GET['id']) || isset($GET['empty']) || isset($_GET['date']) || isset($
             <p>
             <div>
                 <a href="insert_income_cost.php">go to insert incomes or costs</a>
+                <p><?php
+                if(isset($_SESSION['name']))
+                    echo $_SESSION['name'];
+                ?>
+                    </p>
+                    <a href="View/showAllForObject.php"> go to balans</a>
             </div>
             </p>
             <p>
@@ -162,6 +168,7 @@ if (!empty($_GET['textArea'])) {
 //        
 
 //require_once './funcShow.php';
+
 header("Location:./funcShow.php")
 
 ?>

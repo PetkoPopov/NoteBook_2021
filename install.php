@@ -27,10 +27,27 @@
             . " `name` VARCHAR(100) NOT NULL ,"
             . " `at_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,"
             . " PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    if ($msql->query($query) != true) {
+    if ($msql->query($query) == true){
+    
+        echo "Table created";
+    }
+    else
+    {
         $msql->error;
     }
+     $query = "CREATE TABLE `notebook`.`payment_staff`("
+             . "`id` INT NOT NULL AUTO_INCREMENT ,"
+             . " `name` VARCHAR(100) NOT NULL ,"
+             . "PRIMARY KEY (id) ) ENGINE=InnoDB;";
+//     var_dump($query);
+    if ($msql->query($query) == true){
     
+        echo "Table created";
+    }
+    else
+    {
+        $msql->error;
+    }         
     ?>
    
     <p>

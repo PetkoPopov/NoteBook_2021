@@ -37,10 +37,14 @@ td{
     font-size: x-large;
     text-align: center;
 }
-a {
+a{
     box-sizing: content-box;
     background-color: #66ff66;
     border: solid 2px #009999;
     height:76px;
 }
-
+span{
+    bottom: 25px;
+    font-size: 22px;
+    background-color: #ff9933;
+}
