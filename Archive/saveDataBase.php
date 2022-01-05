@@ -1,5 +1,6 @@
 <?php
 
+file_put_contents('save_db', "");
 $msql = new mysqli('', 'root', '', 'notebook');
 $query = 'select * from `namess` ';
 $em = $msql->query($query);
@@ -11,13 +12,13 @@ foreach ($result as $name) {
     $res = $em->fetch_all();
 
     foreach ($res as $row) {
-        
-        $save_row = implode('_', $row  );
-        file_put_contents('save_db', $save_row.'_' , FILE_APPEND);        
-    
-        
+
+        $save_row = implode('_', $row);
+        file_put_contents('save_db', $save_row . '_', FILE_APPEND);
     }
 }
-$file = file('save_db');
 
+echo "<pre>";
+var_dump(file("save_db"));
+echo "</pre>";
 
