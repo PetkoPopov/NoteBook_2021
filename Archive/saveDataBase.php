@@ -19,6 +19,5 @@ foreach ($result as $name) {
     }
 }
 $file = file('save_db');
-var_dump($file);
 
 
