@@ -6,7 +6,7 @@
     <form>
         <?php
         session_start();
-
+        include_once '../View/MakeTableFromArray.php';
         $msql = new mysqli('', 'root', '', 'notebook');
 
         $obj = $_SESSION['name'];
@@ -14,22 +14,16 @@
         $query = "select * from `income_cost` where `name` = '" . $obj . "'";
 //var_dump($msql->query($query));die;
         $result = $msql->query($query);
-        foreach ($result->fetch_all() as $row) {
-            echo "payment or cost= " . $row[1] . '<br/>';
-
-            echo "expl = " . $row[2] . '<br/>';
-//    echo "<br/>";
-            echo "date event = " . $row[3] . '<br/>';
-//    echo "<br/>";
-            echo "object = " . $row[4] . '<br/>';
-            echo "<br/>";
-        }
+        $arr=$result->fetch_all();
+        $table= new \MakeTableFromArray\MakeTableFromArray($arr);
+        
         ?>
 
 
         <input type="submit" value="show Balans" name="showBalans"/>
     </form>
     <?php
+       
     if (array_key_exists('showBalans', $_GET)) {
         unset($_GET['showBalans']);
         $query = "select SUM(cost_income) from `income_cost` where `name`='" . $obj . "' ";
