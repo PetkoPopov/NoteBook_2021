@@ -6,7 +6,7 @@
     <a href="index.php">go to NoteBook </a>
     <a href="insert_income_cost.php">income and payment</a>
     <a href="View/showAllForObject.php">show balans</a>
-    <a href="Archive/saveDataBase.php">save database with text file </a>
+    <a href="Archive/saveDB.php">save database with text file </a>
 
     <?php
     session_start();
