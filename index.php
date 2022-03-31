@@ -3,16 +3,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>TEST AFTER INSTALING</title>
+        <title>AFTER INSTALING</title>
         <link rel="stylesheet" href="../TestAfterReinstaling/newcss.css" />
     </head>
     <body>
         <?php
         session_start();
         
-//echo "<pre>";
-//var_dump($_GET);
-//echo "</pre>";
 $let_sort = false;
 if(isset($_GET['id']) || isset($GET['empty']) || isset($_GET['date']) || isset($_GET['reccord'])){
     $let_sort = true;
@@ -134,23 +131,19 @@ if (!empty($_GET['textArea'])) {
 
         $_SESSION['time_event'] = $time_event;
     }
-    if ($stmt2->execute()) {
-        echo "RECCORD";
-    } else {
-        echo "NO RECORD";
-    }
+    
+    $stmt2->execute();
+    
     $_SESSION['textArea'] = $event;
     $_SESSION['name'] = $newNameObj;
+    
 }
-
-//          $_SESSION['textArea'] = $event;
-//            $_SESSION['name'] = $newNameObj;
-//        
-
-//require_once './funcShow.php';
-
-header("Location:./funcShow.php")
-
+if(!empty($_GET['textArea'])){
+header("Location:./insert_income_cost.php");}
+else{
+//
+header("Location:./funcShow.php");
+}
 ?>
 
         </form>
